@@ -1,27 +1,30 @@
 <template>
-  <v-app class="d-flex">
-    Base project
-    <router-view/>
-  </v-app>
+	<v-app class="d-flex">
+		<Login />
+	</v-app>
 </template>
 
 <script>
-  export default {
-    name: "App"
-  }
+import Login from "./views/Login/Login.vue"
+export default {
+    name: "App",
+    components: {
+        Login
+    }
+}
 </script>
-
 <style>
-  #app {
-    background: #E5E5E5;
-    color: #121214;
-  }
-
-  .toasted-font {
-    font-family: "Roboto", sans-serif;
-  }
-
-  .v-card__text, .v-card__title {
-    word-break: normal !important;
-  }
+#app {
+	background: linear-gradient(
+		359.76deg,
+		rgba(42, 100, 132, 0.8) 0.23%,
+		rgba(196, 196, 196, 0) 99.82%
+	);
+}
+.toasted-font {
+	font-family: "Roboto", sans-serif;
+}
+.v-card__text, .v-card__title {
+	word-break: normal !important;
+}
 </style>
