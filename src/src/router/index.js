@@ -1,6 +1,7 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
 import Login from "@/views/Login/Login.vue"
+import EditUser from "@/views/EditUser/EditUser.vue"
 // import ForgotPassword from "@/views/ForgotPassword/ForgotPassword.vue"
 // import Home from "@/views/Home/Home.vue"
 
@@ -10,14 +11,20 @@ const routes = [{
     path: "/",
     name: "Login",
     component: Login
-}, {
-//     path: "/",
-//     name: "Home",
-//     component: Home
-// }, {
-    path: "/:catchAll(.*)", 
+},
+{
+    path: "/edit-user",
+    name: "EditUser",
+    component: EditUser
+},
+{
+    //     path: "/",
+    //     name: "Home",
+    //     component: Home
+    // }, {
+    path: "/:catchAll(.*)",
     redirect: {
-        name: "Home"
+        name: "EditUser"
     }
 }]
 
@@ -39,7 +46,7 @@ const router = new VueRouter({
 //     const requiresAdmin = to.matched.some(function(record) {
 //         return record.meta.requiresAdmin
 //     })
-    
+
 //     if (to.name !== "ChangePassword" && store.getters.getUser.use_is_temp_password) {
 //         next({name: "ChangePassword"})
 //     } else if (requiresAuth) {

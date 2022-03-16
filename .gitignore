@@ -2,3 +2,4 @@
 **/dist
 .history/*
 !.keep
+src/package-lock.json

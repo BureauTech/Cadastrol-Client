@@ -1,16 +1,12 @@
 <template>
 	<v-app class="d-flex">
-		<Login />
+		<router-view />
 	</v-app>
 </template>
 
 <script>
-import Login from "./views/Login/Login.vue"
 export default {
-    name: "App",
-    components: {
-        Login
-    }
+    name: "App"
 }
 </script>
 <style>
