@@ -2,6 +2,7 @@ import Vue from "vue"
 import VueRouter from "vue-router"
 import Login from "@/views/Login/Login.vue"
 import EditUser from "@/views/EditUser/EditUser.vue"
+import Signup from "@/views/Signup/Signup.vue"
 // import ForgotPassword from "@/views/ForgotPassword/ForgotPassword.vue"
 // import Home from "@/views/Home/Home.vue"
 
@@ -16,6 +17,11 @@ const routes = [{
     path: "/edit-user",
     name: "EditUser",
     component: EditUser
+},
+{
+    path: "/signup",
+    name: "Signup",
+    component: Signup
 },
 {
     //     path: "/",
