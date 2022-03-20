@@ -13,7 +13,7 @@ To make it run on your machine without installing everything locally, you can si
 
 ```docker run -it -p 3001:80 --rm --name cadastrol-client cadastrol-client ```
 
-NOTE: It's important to have docker installed on your machine.
+NOTE: It's important to have [docker installed](https://docs.docker.com/engine/install/) on your machine.
 
 ### Locally
 
