@@ -1,7 +1,6 @@
 # Cadastrol-Client
 
 [![Node.js CI](https://github.com/BureauTech/Cadastrol-Client/actions/workflows/node.js.yml/badge.svg)](https://github.com/BureauTech/Cadastrol-Client/actions/workflows/node.js.yml)
-
 [![Docker Image CI](https://github.com/BureauTech/Cadastrol-Client/actions/workflows/docker-image.yml/badge.svg)](https://github.com/BureauTech/Cadastrol-Client/actions/workflows/docker-image.yml)
 
 ## How to install
