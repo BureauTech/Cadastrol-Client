@@ -1,1 +1,39 @@
-# API6-Frontend
+# Cadastrol-Client
+<table>
+<tr>
+<td>
+
+[![Node.js CI](https://github.com/BureauTech/Cadastrol-Client/actions/workflows/node.js.yml/badge.svg)](https://github.com/BureauTech/Cadastrol-Client/actions/workflows/node.js.yml)
+</td>
+<td>
+
+[![Docker Image CI](https://github.com/BureauTech/Cadastrol-Client/actions/workflows/docker-image.yml/badge.svg)](https://github.com/BureauTech/Cadastrol-Client/actions/workflows/docker-image.yml)
+</td>
+</tr>
+</table>
+
+## How to install
+
+### Docker Image
+
+To make it run on your machine without installing everything locally, you can simply run it via docker image, by following the commands below.
+
+```docker build -t cadastrol-client .```
+
+```docker run -it -p 3001:80 --rm --name cadastrol-client cadastrol-client ```
+
+Important NOTE: It's important to have docker installed on your machine.
+
+### Locally
+
+In case you want to run it in your machine without using docker, you must run the following commands.
+
+At `src/`, run:
+
+```npm install```
+
+```npm run dev```
+
+### Prerequisites:
+
+You must have installed [NodeJS 15.14.0](https://nodejs.org/download/release/v15.14.0/) previously.
