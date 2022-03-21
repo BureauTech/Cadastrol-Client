@@ -30,7 +30,7 @@
             md="6"
             cols="11"
           >
-            <p class="text-h4 bahama--text pb-10">Editar Usuário</p>
+            <p class="text-h4 bahama--text pb-10">Editar usuário</p>
             <v-row class="justify-center">
               <v-col md="3">
                 <b>Nome:</b>
@@ -100,7 +100,7 @@
                   min-width="100%"
                   elevation="2"
                   rounded
-                  color="bahama"
+                  color="#2A6484"
                   class="white--text text-none text-h5"
                 >
                   Salvar

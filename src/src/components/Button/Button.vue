@@ -2,7 +2,7 @@
   <v-btn
     elevation="2"
     rounded
-    color="bahama"
+    color="#2A6484"
     class="white--text text-none text-h5"
     v-bind="$attrs"
     @click="emit"

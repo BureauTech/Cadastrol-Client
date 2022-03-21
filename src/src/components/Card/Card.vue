@@ -4,9 +4,7 @@
       align="center"
       justify="center"
     >
-      <v-col
-        v-bind="$attrs"
-      >
+      <v-col v-bind="$attrs">
         <v-card
           elevation="1"
           :class="round"

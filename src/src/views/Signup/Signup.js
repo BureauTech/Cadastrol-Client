@@ -1,4 +1,5 @@
 import axios from "@/axios.js"
+import router from "@/router"
 
 
 export default {
@@ -10,7 +11,8 @@ export default {
                 use_cod: "",
                 use_name: "",
                 use_phone: "",
-                use_email: ""
+                use_email: "",
+                use_adm: ""
             },
             loading: false
         }
@@ -42,8 +44,8 @@ export default {
                 this.$toasted.error("Ocorreu um erro ao fazer a requisição")
             }
         },
-        cancel: function() {
-            this.$router.back()
+        logout: function() {
+            router.push({name: "UsersList"})
         }
     },
     mounted: function() {

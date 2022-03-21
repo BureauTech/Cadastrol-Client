@@ -2,10 +2,10 @@
   <v-app>
     <v-progress-linear
       :active="loading"
-        color="deep-purple"
-        height="10"
-        indeterminate
-      ></v-progress-linear>
+      color="deep-purple"
+      height="10"
+      indeterminate
+    ></v-progress-linear>
     <v-layout
       row
       justify-center
@@ -13,16 +13,23 @@
       align-top
       class="no-negative"
     >
-    <template slot="progress">
-      <v-progress-linear
-        color="deep-purple"
-        height="10"
-        indeterminate
-      ></v-progress-linear>
-    </template>
-      <v-row class="mt-5 justify-space-around align-start" no-gutters>
-        <v-col sm="8" md="6" cols="11">
-          <p class="text-h4 bahama--text pb-10">Dados do seu perfil</p>
+      <template slot="progress">
+        <v-progress-linear
+          color="deep-purple"
+          height="10"
+          indeterminate
+        ></v-progress-linear>
+      </template>
+      <v-row
+        class="mt-5 justify-space-around align-start"
+        no-gutters
+      >
+        <v-col
+          sm="8"
+          md="6"
+          cols="11"
+        >
+          <p class="text-h4 bahama--text pb-10">Cadastrar usuário</p>
           <v-row class="justify-center">
             <v-col md="3">
               <b>Nome:</b>
@@ -38,7 +45,7 @@
               <b>Telefone:</b>
             </v-col>
             <v-text-field
-            type="tel"
+              type="tel"
               rounded
               outlined
               v-model="userInf.use_phone"
@@ -49,20 +56,28 @@
               <b>Email:</b>
             </v-col>
             <v-text-field
-                type="email"
+              type="email"
               rounded
               outlined
               v-model="userInf.use_email"
             />
           </v-row>
+          <v-row class="justify-center">
+            <v-checkbox
+              v-model="userInf.use_adm"
+              label="Adm"
+              value="true"
+              class="font-weight-bold"
+            ></v-checkbox>
+          </v-row>
           <v-row class="mt-5 justify-space-around align-start">
 
             <v-col md="5">
               <v-btn
-              min-width="100%"
+                min-width="100%"
                 elevation="2"
                 rounded
-                color="bahama"
+                color="#2A6484"
                 class="white--text text-none text-h5"
                 @click="editUser"
               >
