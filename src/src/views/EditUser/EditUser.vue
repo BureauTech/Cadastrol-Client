@@ -39,7 +39,7 @@
                 rounded
                 outlined
                 :rules="[rules.required]"
-                v-model="user.name"
+                v-model="user.useName"
               />
             </v-row>
 
@@ -52,7 +52,7 @@
                 outlined
                 type="email"
                 :rules="[rules.required, rules.email]"
-                v-model="user.email"
+                v-model="user.useEmail"
               />
             </v-row>
             <v-row class="justify-center">
@@ -64,7 +64,7 @@
                 rounded
                 outlined
                 :rules="[rules.number]"
-                v-model="user.phone"
+                v-model="user.usePhone"
               />
             </v-row>
             <v-row class="justify-center">
@@ -75,7 +75,7 @@
                 rounded
                 outlined
                 :rules="[rules.required]"
-                v-model="user.password"
+                v-model="user.usePassword"
                 @click:append="() => (value = !value)"
                 :type="value ? 'text' : 'password'"
                 :append-icon="value ? 'mdi-eye' : 'mdi-eye-off'"
@@ -89,7 +89,7 @@
                 rounded
                 outlined
                 type="password"
-                :rules="[rules.required, rules.same(samePass, user.password)]"
+                :rules="[rules.required, rules.same(samePass, user.usePassword)]"
                 v-model="samePass"
               />
             </v-row>
@@ -102,6 +102,7 @@
                   rounded
                   color="#2A6484"
                   class="white--text text-none text-h5"
+                  @click="editUser"
                 >
                   Salvar
                 </v-btn>
@@ -114,6 +115,7 @@
                   rounded
                   color="red"
                   class="white--text text-none text-h5"
+                  @click="cancel"
                 >
                   Cancelar
                 </v-btn>

@@ -14,16 +14,13 @@ export default {
     },
     data: function() {
         return {
-            csvFile: null,
             headers: [{text: "Nome", align: "start", value: "useName"}, {text: "E-mail",
                 value: "useEmail"
             }, {text: "Telefone", value: "usePhone"}, {text: "Adm", value: "useIsAdmin"}, 
             {text: "Editar", value: "edit"}, {text: "Excluir", value: "delete"}],
             users: [],
             dialog: false,
-            teste: undefined,
-            dialogCsvError: false,
-            errors: ""
+            user: ""
         }
     },
     beforeMount: function() {
@@ -39,26 +36,22 @@ export default {
             }
         },
         Edit(item) {
-            this.$router.push({name: "EditProfile", params: {user: item}})
+            this.$router.push({name: "EditUser", params: {user: item}})
         },
         Delete(item) {
             this.dialog = true
-            this.teste = item
-            console.log(item.use_cod)
+            this.user = item
         },
         AddUser() {
             router.push({name: "Signup"})
         },
         async DeleteUser() {
-            const response = await axios.delete(`/administrator/${this.teste.use_cod}/`)
-            this.dialog = false
+            const response = await axios.delete(`/user/${this.user.useCod}/`)
             if (!response.data.success) {
                 return this.$toasted.error("Ocorreu um erro na requisição")
             }
             this.$toasted.success("Usuário excluído com sucesso!")
-            setTimeout(function() { 
-                window.location.reload()
-            }, 1500)
+            window.location.reload()
         }
     }
 }
