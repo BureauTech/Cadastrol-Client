@@ -17,8 +17,8 @@ export default {
             rules: rulesUtils,
             loading: false,
             loginForm: {
-                email: undefined,
-                password: undefined
+                useEmail: undefined,
+                usePassword: undefined
             }
         }
     },
@@ -26,8 +26,6 @@ export default {
         login: async function() {
             if (this.$refs.loginForm.validate()) {
                 this.loading = true
-                //router.push({name: "EditUser"})
-                router.push({name: "UsersList"})
                 try {
                     const {data} = await axios.post("/login", this.loginForm)
                     if (data.success) {

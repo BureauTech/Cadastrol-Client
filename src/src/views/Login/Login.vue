@@ -33,7 +33,7 @@
           <Input
             placeholder="exemplo@bureau.com"
             :rules="[rules.required, rules.email]"
-            v-model="loginForm.email"
+            v-model="loginForm.useEmail"
             type="email"
             name="email"
             required
@@ -43,7 +43,7 @@
           <Input
             placeholder="Senha"
             :rules="[rules.required]"
-            v-model="loginForm.password"
+            v-model="loginForm.usePassword"
             type="password"
             required
             name="password"
