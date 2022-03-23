@@ -15,9 +15,9 @@ export default {
     data: function() {
         return {
             csvFile: null,
-            headers: [{text: "Nome", align: "start", value: "use_name"}, {text: "E-mail",
-                value: "use_email"
-            }, {text: "Telefone", value: "use_telefone"}, {text: "Adm", value: "use_adm"}, 
+            headers: [{text: "Nome", align: "start", value: "useName"}, {text: "E-mail",
+                value: "useEmail"
+            }, {text: "Telefone", value: "usePhone"}, {text: "Adm", value: "useIsAdmin"}, 
             {text: "Editar", value: "edit"}, {text: "Excluir", value: "delete"}],
             users: [],
             dialog: false,
@@ -31,8 +31,12 @@ export default {
     },
     methods: {
         getUsers: async function() {
-            const response = await axios.get("/administrator/")
-            this.users = response.data.data
+            try {
+                const response = await axios.get("/user")
+                this.users = response.data.data
+            } catch {
+                this.$toasted.error("Erro ao listar usuários!")
+            }
         },
         Edit(item) {
             this.$router.push({name: "EditProfile", params: {user: item}})
@@ -55,11 +59,6 @@ export default {
             setTimeout(function() { 
                 window.location.reload()
             }, 1500)
-        },
-        DownloadErrors() {
-            this.dialogCsvError = false
-            const blob = new Blob([this.errors], {type: "text/csv"})
-            saveAs(blob, "Erros.csv")
         }
     }
 }
