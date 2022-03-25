@@ -1,15 +1,12 @@
-import Card from "@/components/Card/Card.vue"
-import Button from "@/components/Button/Button.vue"
-import Input from "@/components/Input/Input.vue"
 import axios from "@/axios.js"
 import router from "@/router"
+import Card from "@/components/Card/Card.vue"
+
 
 export default {
     name: "UserList",
     components: {
-        Card,
-        Button,
-        Input
+        Card
     },
     data: function() {
         return {
@@ -46,6 +43,10 @@ export default {
         },
         addUser() {
             router.push({name: "Signup"})
+        },
+        logout() {
+            document.cookie = "jwtoken=; Path=/api/v1; Max-Age=0"
+            this.$router.push({name: "Login"})
         },
         async deleteUser() {
             this.dialog = false

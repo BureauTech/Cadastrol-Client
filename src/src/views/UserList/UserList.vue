@@ -23,15 +23,24 @@
                 <v-toolbar-title>Lista de Usuários</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-btn
-                  class="m-2"
-                  fab
                   dark
-                  small
-                  color="blue"
+                  color="#228B22"
+                  style="margin-right: 5px;"
                   @click="addUser"
                 >
-                  <v-icon dark>
-                    mdi-plus
+                  <v-icon>
+                    mdi-account-plus
+                  </v-icon>
+                  Criar
+                </v-btn>
+                <v-btn
+                  dark
+                  color="red"
+                  @click="logout"
+                >
+                  Sair
+                  <v-icon>
+                    mdi-logout-variant
                   </v-icon>
                 </v-btn>
               </v-toolbar>

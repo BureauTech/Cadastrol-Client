@@ -11,7 +11,7 @@ export default {
 </script>
 <style>
 #app {
-	background-color: #f3f3f3
+	background-color: #F3F3F3
 }
 .toasted-font {
 	font-family: "Roboto", sans-serif;

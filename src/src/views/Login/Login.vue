@@ -58,6 +58,7 @@
             type="submit"
             min-width="150"
             min-height="50"
+            color="#228B22"
             @click.stop.prevent="login"
           >
             Login
