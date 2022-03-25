@@ -31,7 +31,7 @@
         </v-row>
         <v-row no-gutters>
           <Input
-            placeholder="exemplo@bureau.com"
+            placeholder="exemplo@bureautech.com"
             :rules="[rules.required, rules.email]"
             v-model="loginForm.useEmail"
             type="email"
@@ -62,18 +62,6 @@
           >
             Login
           </Button>
-        </v-row>
-        <v-row
-          no-gutters
-          align="center"
-          justify="center"
-        >
-          <router-link
-            to="/esqueci-a-senha"
-            class="text-decoration-none"
-          >
-            <p class="text-h6 bahama--text">Esqueci minha senha</p>
-          </router-link>
         </v-row>
       </v-form>
     </v-col>

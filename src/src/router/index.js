@@ -29,7 +29,7 @@ const routes = [{
 }, {
     path: "/:catchAll(.*)",
     redirect: {
-        name: "EditUser"
+        name: "UserList"
     }
 }]
 
