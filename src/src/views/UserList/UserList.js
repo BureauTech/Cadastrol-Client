@@ -10,7 +10,6 @@ export default {
         Card,
         Button,
         Input
-
     },
     data: function() {
         return {
@@ -18,12 +17,10 @@ export default {
                 value: "useEmail"
             }, {text: "Telefone", value: "usePhone"}, 
             {text: "Editar", value: "edit"}, {text: "Excluir", value: "delete"}],
-            users: [],
             dialog: false,
-            user: "",
+            user: undefined,
+            users: [],
             page: 0,
-            pageCount: 2,
-            itemsPerPage: 10,
             hasNext: true
         }
     },
@@ -37,7 +34,7 @@ export default {
                 const response = await axios.get("/user", {params: {page: this.page++}})
                 const userList = response.data.data
                 this.users = [...this.users, ...userList]
-                this.hasNext = userList.length == 10
+                this.hasNext = userList.length === 10
             } catch {
                 this.$toasted.error("Erro ao listar usuários!")
             }
@@ -56,6 +53,7 @@ export default {
             const response = await axios.delete(`/user/${this.user.useCod}/`)
             if (!response.data.success) return this.$toasted.error("Ocorreu um erro na requisição")
             this.$toasted.success("Usuário excluído com sucesso!")
+            await new Promise(resolve => setTimeout(resolve, 1000))
             window.location.reload()
         }
     }

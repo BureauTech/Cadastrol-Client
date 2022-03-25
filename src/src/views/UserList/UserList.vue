@@ -1,23 +1,5 @@
 <template>
-  <v-row v-if="users.length == 0">
-    <v-col>
-      <v-img
-        src="@/assets/board-image.png"
-        max-height="300"
-        max-width="400"
-        aspect-ratio="1"
-        contain
-      />
-      <v-col
-        lg="4"
-        xl="3"
-        sm="6"
-        cols="9"
-      >
-      </v-col>
-    </v-col>
-  </v-row>
-  <v-row v-else>
+  <v-row>
     <v-col>
       <Card
         :roundLevel="0"
@@ -32,10 +14,8 @@
             :items="users"
             sort-by="use_cod"
             class="elevation-1"
-            :page.sync="page"
-            :items-per-page="itemsPerPage"
-            hide-default-footer
-            @page-count="pageCount = $event"
+            :footer-props="{'items-per-page-options': [9]}"
+            @update:page="getUsers"
           >
             <template v-slot:top>
               <v-toolbar flat>
@@ -72,20 +52,6 @@
               </v-btn>
             </template>
           </v-data-table>
-          <div class="text-center pt-2">
-            <v-pagination
-              v-model="page"
-              :length="pageCount"
-            ></v-pagination>
-            <v-text-field
-              :value="itemsPerPage"
-              label="Items per page"
-              type="number"
-              min="-1"
-              max="15"
-              @input="itemsPerPage = parseInt($event, 10)"
-            ></v-text-field>
-          </div>
           <v-dialog
             v-model="dialog"
             persistent
