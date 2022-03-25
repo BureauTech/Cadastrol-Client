@@ -16,11 +16,15 @@ export default {
         return {
             headers: [{text: "Nome", align: "start", value: "useName"}, {text: "E-mail",
                 value: "useEmail"
-            }, {text: "Telefone", value: "usePhone"}, {text: "Adm", value: "useIsAdmin"}, 
+            }, {text: "Telefone", value: "usePhone"}, 
             {text: "Editar", value: "edit"}, {text: "Excluir", value: "delete"}],
             users: [],
             dialog: false,
-            user: ""
+            user: "",
+            page: 0,
+            pageCount: 2,
+            itemsPerPage: 10,
+            hasNext: true
         }
     },
     beforeMount: function() {
@@ -29,8 +33,12 @@ export default {
     methods: {
         getUsers: async function() {
             try {
-                const response = await axios.get("/user")
-                this.users = response.data.data
+                console.log(this.page, this.hasNext, this.users)
+                if (!this.hasNext) return
+                const response = await axios.get("/user", {params: {page: this.page++}})
+                const newUsers = response.data.data
+                this.hasNext = newUsers.length == 10
+                this.users = [...this.users, ...newUsers]
             } catch {
                 this.$toasted.error("Erro ao listar usuários!")
             }

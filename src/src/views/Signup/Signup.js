@@ -1,5 +1,6 @@
 import axios from "@/axios.js"
 import router from "@/router"
+import rulesUtils from "@/utils/rulesUtils"
 
 
 export default {
@@ -7,34 +8,28 @@ export default {
 
     data: function() {
         return {
-            userInf: {
-                use_cod: "",
-                use_name: "",
-                use_phone: "",
-                use_email: "",
-                use_adm: ""
+            user: {
+                useName: "",
+                usePhone: "",
+                useEmail: "",
+                usePassword: "",
+                useCod: undefined
             },
+            samePass: "",
+            rules: rulesUtils,
+            value: "",
             loading: false
         }
     },
       
     methods: {
-        editUser: function() {
+        addUser: function() {
             this.loading = true
             try {
-                const data = {
-                    use_cod: this.userInf.use_cod,
-                    use_name: this.userInf.use_name,
-                    use_document: this.userInf.use_document,
-                    use_nickname: this.userInf.use_nickname,
-                    use_phone: this.userInf.use_phone,
-                    use_address: this.userInf.use_address,
-                    use_email: this.userInf.use_email
-                }
-                axios.put("/user/edit", data)
+                axios.post("/user", this.user)
                     .then(res => {
                         if(res.data.success) {
-                            this.$toasted.success("Usuário alterado com sucesso!")
+                            this.$toasted.success("Usuário cadastrado com sucesso!")
                             this.loading = false
                             window.history.back()
                         }
@@ -44,15 +39,10 @@ export default {
                 this.$toasted.error("Ocorreu um erro ao fazer a requisição")
             }
         },
-        logout: function() {
+        cancel: function() {
             router.push({name: "UsersList"})
         }
     },
     mounted: function() {
-        if (this.$route.params.user && this.$store.getters.getUser.use_is_admin) {
-            this.userInf = this.$route.params.user
-        } else {
-            this.userInf = this.$store.getters.getUser
-        }
     }
 }

@@ -27,10 +27,8 @@ export default {
             if (this.$refs.loginForm.validate()) {
                 this.loading = true
                 try {
-                    const {data} = await axios.post("/login", this.loginForm)
-                    if (data.success) {
-                        await this.$store.dispatch("setAuth", true)
-                        await this.$store.dispatch("setUser", data.user)
+                    const response = await axios.post("/login", this.loginForm)
+                    if (response.status == 200) {
                         router.push({name: "UsersList"})
                     } else {
                         this.$toasted.error("Credenciais incorretas")

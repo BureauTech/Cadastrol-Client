@@ -37,7 +37,7 @@
             <v-text-field
               rounded
               outlined
-              v-model="userInf.use_name"
+              v-model="user.useName"
             />
           </v-row>
           <v-row class="justify-center">
@@ -48,7 +48,7 @@
               type="tel"
               rounded
               outlined
-              v-model="userInf.use_phone"
+              v-model="user.usePhone"
             />
           </v-row>
           <v-row class="justify-center">
@@ -59,32 +59,36 @@
               type="email"
               rounded
               outlined
-              v-model="userInf.use_email"
+              v-model="user.useEmail"
             />
           </v-row>
           <v-row class="justify-center">
-            <v-checkbox
-              v-model="userInf.use_adm"
-              label="Adm"
-              value="true"
-              class="font-weight-bold"
-            ></v-checkbox>
+            <v-col md="3">
+              <b>Senha:</b>
+            </v-col>
+            <v-text-field
+              rounded
+              outlined
+              :rules="[rules.required]"
+              v-model="user.usePassword"
+              @click:append="() => (value = !value)"
+              :type="value ? 'text' : 'password'"
+              :append-icon="value ? 'mdi-eye' : 'mdi-eye-off'"
+            />
+          </v-row>
+          <v-row class="justify-center">
+            <v-col md="3">
+              <b>Confirmar Senha:</b>
+            </v-col>
+            <v-text-field
+              rounded
+              outlined
+              type="password"
+              :rules="[rules.required, rules.same(samePass, user.usePassword)]"
+              v-model="samePass"
+            />
           </v-row>
           <v-row class="mt-5 justify-space-around align-start">
-
-            <v-col md="5">
-              <v-btn
-                min-width="100%"
-                elevation="2"
-                rounded
-                color="#2A6484"
-                class="white--text text-none text-h5"
-                @click="editUser"
-              >
-                Salvar
-              </v-btn>
-            </v-col>
-
             <v-col md="5">
               <v-btn
                 min-width="100%"
@@ -95,6 +99,18 @@
                 @click="cancel"
               >
                 Cancelar
+              </v-btn>
+            </v-col>
+            <v-col md="5">
+              <v-btn
+                min-width="100%"
+                elevation="2"
+                rounded
+                color="#2A6484"
+                class="white--text text-none text-h5"
+                @click="addUser"
+              >
+                Salvar
               </v-btn>
             </v-col>
           </v-row>
