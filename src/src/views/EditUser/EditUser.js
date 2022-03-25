@@ -19,7 +19,7 @@ export default {
                 const response = await axios.put(`/user/${this.user.useCod}`, this.user)
                 if (response.data.success) {
                     this.$toasted.success("Sucesso ao editar usuário!")
-                    this.$router.push({name: "UsersList"})
+                    this.$router.push({name: "UserList"})
                 }
                 
             } catch(error) {
@@ -27,7 +27,7 @@ export default {
             }
         },
         cancel: function() {
-            this.$router.push({name: "UsersList"})
+            this.$router.push({name: "UserList"})
         }
     },
     beforeMount: function() {

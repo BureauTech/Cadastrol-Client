@@ -40,7 +40,7 @@ export default {
             }
         },
         cancel: function() {
-            router.push({name: "UsersList"})
+            router.push({name: "UserList"})
         }
     },
     mounted: function() {

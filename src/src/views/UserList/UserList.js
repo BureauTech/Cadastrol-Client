@@ -5,7 +5,7 @@ import axios from "@/axios.js"
 import router from "@/router"
 
 export default {
-    name: "UsersList",
+    name: "UserList",
     components: {
         Card,
         Button,
@@ -33,12 +33,11 @@ export default {
     methods: {
         getUsers: async function() {
             try {
-                console.log(this.page, this.hasNext, this.users)
                 if (!this.hasNext) return
                 const response = await axios.get("/user", {params: {page: this.page++}})
-                const newUsers = response.data.data
-                this.hasNext = newUsers.length == 10
-                this.users = [...this.users, ...newUsers]
+                const userList = response.data.data
+                this.users = [...this.users, ...userList]
+                this.hasNext = userList.length == 10
             } catch {
                 this.$toasted.error("Erro ao listar usuários!")
             }
@@ -55,9 +54,7 @@ export default {
         },
         async DeleteUser() {
             const response = await axios.delete(`/user/${this.user.useCod}/`)
-            if (!response.data.success) {
-                return this.$toasted.error("Ocorreu um erro na requisição")
-            }
+            if (!response.data.success) return this.$toasted.error("Ocorreu um erro na requisição")
             this.$toasted.success("Usuário excluído com sucesso!")
             window.location.reload()
         }

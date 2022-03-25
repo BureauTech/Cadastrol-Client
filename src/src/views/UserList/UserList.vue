@@ -14,10 +14,6 @@
         sm="6"
         cols="9"
       >
-        <p
-          class="p-info text-h5 font-weight-medium"
-          v-text="`Você não possui usuários no momento`"
-        ></p>
       </v-col>
     </v-col>
   </v-row>
@@ -124,6 +120,6 @@
   </v-row>
 </template>
 
-<script src="./UsersList.js" scoped></script>
+<script src="./UserList.js" scoped></script>
 
-<style src="./UsersList.css"></style>
+<style src="./UserList.css"></style>
