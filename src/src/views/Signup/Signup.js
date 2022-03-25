@@ -1,11 +1,14 @@
 import axios from "@/axios.js"
 import router from "@/router"
 import rulesUtils from "@/utils/rulesUtils"
-
+import Card from "@/components/Card/Card.vue"
 
 export default {
     name: "Signup",
-
+    components: {
+        Card
+    },
+    
     data: function() {
         return {
             user: {

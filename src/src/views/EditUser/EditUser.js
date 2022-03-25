@@ -1,12 +1,17 @@
 import rulesUtils from "@/utils/rulesUtils"
 import axios from "@/axios.js"
+import Card from "@/components/Card/Card.vue"
 
 export default { 
-    name: "EditUser",
+    name: "Edit User",
+    components: {
+        Card
+    },
+
     data: function() {
         return {
             loading: false,
-            user: "",
+            user: {},
             samePass: "",
             rules: rulesUtils,
             value: ""

@@ -8,7 +8,7 @@ export default {
         },
         colorCard: {
             type: String,
-            default: "white"
+            default: "#e9e9e9"
         }
     },
     data: function() {

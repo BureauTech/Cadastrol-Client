@@ -6,7 +6,15 @@
 			height="10"
 			indeterminate
 		></v-progress-linear>
-		<v-form>
+		<Card
+			:loading="loading"
+				padding="2"
+			cols="8"Î
+			sm="8"
+			lg="8"
+			xl="8"
+			:roundLevel="4"
+		> 
 			<v-layout
 				row
 				justify-center
@@ -26,9 +34,9 @@
 					no-gutters
 				>
 					<v-col
-						sm="8"
-						md="6"
-						cols="11"
+						sm="10"
+						md="10"
+						cols="10"
 					>
 						<p class="text-h4 bahama--text pb-10">Editar usuário</p>
 						<v-row class="justify-center">
@@ -73,7 +81,6 @@
 							<v-text-field
 								rounded
 								outlined
-								:rules="[rules.required]"
 								v-model="user.usePassword"
 								@click:append="() => (value = !value)"
 								:type="value ? 'text' : 'password'"
@@ -88,7 +95,7 @@
 								rounded
 								outlined
 								type="password"
-								:rules="[rules.required, rules.same(samePass, user.usePassword)]"
+								:rules="[rules.same(samePass, user.usePassword)]"
 								v-model="samePass"
 								@click:append="() => (value = !value)"
 								:type="value ? 'text' : 'password'"
@@ -96,36 +103,37 @@
 							/>
 						</v-row>
 						<v-row class="mt-5 justify-space-around align-start">
-							<v-col md="5">
+							<v-col md="5" style="margin-bottom: 20px;">
 								<v-btn
 									min-width="100%"
 									elevation="2"
 									rounded
-									color="red"
+									color="grey"
 									class="white--text text-none text-h5"
 									@click="cancel"
 								>
 									Cancelar
 								</v-btn>
 							</v-col>
-								<v-col md="5">
-								<v-btn
-									min-width="100%"
-									elevation="2"
-									rounded
-									color="#2A6484"
-									class="white--text text-none text-h5"
-									@click="editUser"
-								>
-									Salvar
-								</v-btn>
-							</v-col>
-						</v-row>
-					</v-col>
-				</v-row>
-			</v-layout>
-		</v-form>
+						<v-col md="5" style="margin-bottom: 20px;">
+							<v-btn
+								min-width="100%"
+								elevation="2"
+								rounded
+								color="#228B22"
+								class="white--text text-none text-h5"
+								@click="editUser"
+							>
+								Salvar
+							</v-btn>
+						</v-col>
+					</v-row>
+				</v-col>
+			</v-row>
+		</v-layout>
+	</Card>
 	</v-app>
 </template>
 
 <script src="./EditUser.js"/>
+
