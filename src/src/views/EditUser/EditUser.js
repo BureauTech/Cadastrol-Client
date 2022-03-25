@@ -14,14 +14,12 @@ export default {
     },
     methods: {
         editUser: async function() {
-            
             try {
                 const response = await axios.put(`/user/${this.user.useCod}`, this.user)
                 if (response.data.success) {
                     this.$toasted.success("Sucesso ao editar usuário!")
                     this.$router.push({name: "UserList"})
                 }
-                
             } catch(error) {
                 this.$toasted.error("Erro ao editar usuário!")
             }

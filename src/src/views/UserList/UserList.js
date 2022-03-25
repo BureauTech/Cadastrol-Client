@@ -13,10 +13,8 @@ export default {
     },
     data: function() {
         return {
-            headers: [{text: "Nome", align: "start", value: "useName"}, {text: "E-mail",
-                value: "useEmail"
-            }, {text: "Telefone", value: "usePhone"}, 
-            {text: "Editar", value: "edit"}, {text: "Excluir", value: "delete"}],
+            headers: [{text: "Nome", align: "start", value: "useName"}, {text: "E-mail", value: "useEmail"},
+                {text: "Telefone", value: "usePhone"}, {text: "Ações", value: "actions", sortable: false}],
             dialog: false,
             user: undefined,
             users: [],
@@ -39,17 +37,17 @@ export default {
                 this.$toasted.error("Erro ao listar usuários!")
             }
         },
-        Edit(item) {
-            this.$router.push({name: "EditUser", params: {user: item}})
+        editDialog(user) {
+            this.$router.push({name: "EditUser", params: {user: user}})
         },
-        Delete(item) {
+        deleteDialog(user) {
             this.dialog = true
-            this.user = item
+            this.user = user
         },
-        AddUser() {
+        addUser() {
             router.push({name: "Signup"})
         },
-        async DeleteUser() {
+        async deleteUser() {
             this.dialog = false
             const response = await axios.delete(`/user/${this.user.useCod}/`)
             if (!response.data.success) return this.$toasted.error("Ocorreu um erro na requisição")

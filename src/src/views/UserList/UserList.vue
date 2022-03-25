@@ -10,7 +10,7 @@
       >
         <template>
           <v-data-table
-            height=475
+            height=480
             :headers="headers"
             :items="users"
             sort-by="use_cod"
@@ -28,7 +28,7 @@
                   dark
                   small
                   color="blue"
-                  @click="AddUser"
+                  @click="addUser"
                 >
                   <v-icon dark>
                     mdi-plus
@@ -36,21 +36,13 @@
                 </v-btn>
               </v-toolbar>
             </template>
-            <template v-slot:item.edit="{ item }">
-              <v-btn
-                small
-                @click="Edit(item)"
-              >
-                <v-icon>mdi-pencil</v-icon>
-              </v-btn>
-            </template>
-            <template v-slot:item.delete="{ item }">
-              <v-btn
-                small
-                @click="Delete(item)"
-              >
-                <v-icon>mdi-delete</v-icon>
-              </v-btn>
+            <template v-slot:item.actions="{ item }">
+              <v-icon class="mr-2" @click="editDialog(item)">
+                mdi-pencil
+              </v-icon>
+              <v-icon @click="deleteDialog(item)">
+                mdi-delete
+              </v-icon>
             </template>
           </v-data-table>
           <v-dialog
@@ -74,7 +66,7 @@
                 <v-btn
                   color="blue darken-1"
                   text
-                  @click="DeleteUser()"
+                  @click="deleteUser()"
                 >
                   Sim
                 </v-btn>
