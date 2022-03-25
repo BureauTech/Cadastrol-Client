@@ -50,11 +50,11 @@ export default {
             router.push({name: "Signup"})
         },
         async DeleteUser() {
+            this.dialog = false
             const response = await axios.delete(`/user/${this.user.useCod}/`)
             if (!response.data.success) return this.$toasted.error("Ocorreu um erro na requisição")
             this.$toasted.success("Usuário excluído com sucesso!")
-            await new Promise(resolve => setTimeout(resolve, 1000))
-            window.location.reload()
+            setTimeout(() => window.location.reload(), 1500)
         }
     }
 }

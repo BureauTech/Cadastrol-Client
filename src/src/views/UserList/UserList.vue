@@ -10,6 +10,7 @@
       >
         <template>
           <v-data-table
+            height=475
             :headers="headers"
             :items="users"
             sort-by="use_cod"
@@ -27,7 +28,7 @@
                   dark
                   small
                   color="blue"
-                  @click="getUsers"
+                  @click="AddUser"
                 >
                   <v-icon dark>
                     mdi-plus
