@@ -46,8 +46,8 @@
             </template>
             <template v-slot:item.actions="{ item }">
               <v-tooltip
-                bottom
-                color="primary"
+                left
+                content-class="edit"
               >
                 <template v-slot:activator="{ on, attrs }">
                   <v-icon
@@ -62,8 +62,8 @@
                 <span>Editar</span>
               </v-tooltip>
               <v-tooltip
-                bottom
-                color="error"
+                right
+                content-class="delete"
               >
                 <template v-slot:activator="{ on, attrs }">
                   <v-icon
