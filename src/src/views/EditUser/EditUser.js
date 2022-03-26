@@ -50,13 +50,13 @@ export default {
                     this.loading = true
                     const response = await axios.put(`/user/${this.user.useCod}`, fieldsToUpdate)
                     if (response.data.success) {
-                        this.loading = false
                         this.$toasted.success("Sucesso ao editar usuário!")
                         this.$router.push({name: "UserList"})
                     }
                 } catch (error) {
-                    this.loading = false
                     this.$toasted.error("Erro ao editar usuário!")
+                } finally {
+                    this.loading = false
                 }
             } else {
                 this.$toasted.info("Nenhuma informação foi alterada")

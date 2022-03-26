@@ -7,7 +7,7 @@ export default {
     components: {
         UserForm
     },
-    
+
     data: function() {
         return {
             loading: false,
@@ -30,22 +30,21 @@ export default {
             rules: rulesUtils
         }
     },
-      
+
     methods: {
         addUser: async function(userFormRef) {
             if (!userFormRef.validate()) return
-
             this.loading = true
             try {
                 const {data} = await axios.post("/user", this.user)
                 if (data.success) {
                     this.$toasted.success("Usuário cadastrado com sucesso!")
-                    this.loading = false
-                    this.$router.go(-1)
+                    this.$router.push({name: "UserList"})
                 }
-                
             } catch (error) {
-                this.$toasted.error("Ocorreu um erro ao fazer a requisição")
+                this.$toasted.error("Erro ao cadastrar usuário!")
+            } finally {
+                this.loading = false
             }
         },
         cancel: function(e) {
