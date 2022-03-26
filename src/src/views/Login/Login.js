@@ -29,11 +29,11 @@ export default {
                     const response = await axios.post("/login", this.loginForm)
                     if (response.status == 200) {
                         await this.$store.dispatch("setAuth", true)
+                        this.$router.push({name: "UserList"})
                     } else {
                         this.$toasted.error("Credenciais incorretas")
                     }
                 } catch (error) {
-                    console.log(error)
                     this.$toasted.error("Ocorreu um erro na requisição")
                 } finally {
                     this.loading = false

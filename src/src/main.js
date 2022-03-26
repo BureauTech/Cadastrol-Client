@@ -17,12 +17,11 @@ Vue.use(Toasted, {
 const startApp = async function() {
     try {
         const response = await axios.get("/user")
-        if(response.data.success) {
-            store.dispatch("setAuth", true)
-        }
+        if (response.data.success) store.dispatch("setAuth", true)
     } catch (error) {
-        console.error()
+        console.error(error)
     }
+
     Vue.config.productionTip = false
     new Vue({
         vuetify,

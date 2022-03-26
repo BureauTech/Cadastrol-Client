@@ -43,8 +43,9 @@ export default {
         addUser() {
             this.$router.push({name: "Signup"})
         },
-        logout() {
-            document.cookie = "jwtoken=; Path=/api/v1; Max-Age=0; SameSite=None; Secure"
+        async logout() {
+            await axios.get("/logout")
+            await this.$store.dispatch("setAuth", false)
             this.$router.push({name: "Login"})
         },
         async deleteUser() {
