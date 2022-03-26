@@ -1,6 +1,6 @@
 import axios from "@/axios.js"
 import Card from "@/components/Card/Card.vue"
-
+import searchUtils from "@/utils/searchUtils"
 
 export default {
     name: "UserList",
@@ -44,15 +44,15 @@ export default {
             this.$router.push({name: "Signup"})
         },
         logout() {
-            document.cookie = "jwtoken=; Path=/api/v1; Max-Age=0"
+            document.cookie = "jwtoken=; Path=/api/v1; Max-Age=0; SameSite=None; Secure"
             this.$router.push({name: "Login"})
         },
         async deleteUser() {
             this.dialog = false
             const response = await axios.delete(`/user/${this.user.useCod}/`)
             if (!response.data.success) return this.$toasted.error("Ocorreu um erro na requisição")
+            this.users.splice(searchUtils.searchUserInUserList(this.user, this.users), 1)
             this.$toasted.success("Usuário excluído com sucesso!")
-            setTimeout(() => window.location.reload(), 1500)
         }
     }
 }
