@@ -138,6 +138,7 @@
                     rounded
                     color="#228B22"
                     class="white--text text-none text-h5"
+                    type="submit"
                     @click="emitSave"
                   >
                     Salvar
