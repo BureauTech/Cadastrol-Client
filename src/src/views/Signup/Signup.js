@@ -1,51 +1,54 @@
 import axios from "@/axios.js"
-import router from "@/router"
 import rulesUtils from "@/utils/rulesUtils"
-import Card from "@/components/Card/Card.vue"
+import UserForm from "@/components/UserForm/UserForm.vue"
 
 export default {
     name: "Signup",
     components: {
-        Card
+        UserForm
     },
-    
+
     data: function() {
         return {
+            loading: false,
+            originalUser: {
+                useName: "",
+                useEmail: "",
+                usePhone: ""
+            },
             user: {
                 useName: "",
-                usePhone: "",
                 useEmail: "",
-                usePassword: "",
-                useCod: undefined
+                usePhone: "",
+                usePassword: ""
             },
-            samePass: "",
-            rules: rulesUtils,
-            value: "",
-            loading: false
+            confirmPassword: "",
+            nameRules: [rulesUtils.required],
+            emailRules: [rulesUtils.required, rulesUtils.email],
+            phoneRules: [rulesUtils.required, rulesUtils.number],
+            passwordRules: [rulesUtils.required],
+            rules: rulesUtils
         }
     },
-      
+
     methods: {
-        addUser: function() {
+        addUser: async function(userFormRef) {
+            if (!userFormRef.validate()) return
             this.loading = true
             try {
-                axios.post("/user", this.user)
-                    .then(res => {
-                        if(res.data.success) {
-                            this.$toasted.success("Usuário cadastrado com sucesso!")
-                            this.loading = false
-                            window.history.back()
-                        }
-                    })
-                
+                const {data} = await axios.post("/user", this.user)
+                if (data.success) {
+                    this.$toasted.success("Usuário cadastrado com sucesso!")
+                    this.$router.push({name: "UserList"})
+                }
             } catch (error) {
-                this.$toasted.error("Ocorreu um erro ao fazer a requisição")
+                this.$toasted.error("Erro ao cadastrar usuário!")
+            } finally {
+                this.loading = false
             }
         },
         cancel: function() {
-            router.push({name: "UserList"})
+            this.$router.push({name: "UserList"})
         }
-    },
-    mounted: function() {
     }
 }

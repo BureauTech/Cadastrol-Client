@@ -3,7 +3,6 @@ import Input from "@/components/Input/Input.vue"
 import Button from "@/components/Button/Button.vue"
 import rulesUtils from "@/utils/rulesUtils"
 import axios from "@/axios"
-import router from "@/router"
 
 export default {
     name: "Login",
@@ -30,7 +29,6 @@ export default {
                     const response = await axios.post("/login", this.loginForm)
                     if (response.status == 200) {
                         await this.$store.dispatch("setAuth", true)
-                        router.push({name: "UserList"})
                     } else {
                         this.$toasted.error("Credenciais incorretas")
                     }

@@ -1,5 +1,4 @@
 import axios from "@/axios.js"
-import router from "@/router"
 import Card from "@/components/Card/Card.vue"
 
 
@@ -42,7 +41,7 @@ export default {
             this.user = user
         },
         addUser() {
-            router.push({name: "Signup"})
+            this.$router.push({name: "Signup"})
         },
         logout() {
             document.cookie = "jwtoken=; Path=/api/v1; Max-Age=0"

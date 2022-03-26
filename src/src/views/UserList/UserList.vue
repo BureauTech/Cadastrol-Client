@@ -1,5 +1,5 @@
 <template>
-  <v-row>
+  <v-row no-gutters>
     <v-col>
       <Card
         :roundLevel="0"
@@ -13,7 +13,6 @@
             height=480
             :headers="headers"
             :items="users"
-            sort-by="use_cod"
             class="elevation-1"
             :footer-props="{'items-per-page-options': [9]}"
             @update:page="getUsers"
