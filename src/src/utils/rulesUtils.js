@@ -6,9 +6,7 @@ export default {
         return pattern.test(value) || "E-mail inválido."
     },
     same: (firstValue, secondValue) => firstValue === secondValue || "Senhas diferentes.",
-    number: value => {
-        const pattern = /[0-9.,]/
-        return pattern.test(value) || "Número inválido." 
-    },
-    maxValue: (firstValue, secondValue) => firstValue <= secondValue || "Valor menor que o mínimo."
+    number: value => Number(value) ? true : "Número inválido.",
+    maxValue: (firstValue, secondValue) => firstValue <= secondValue || "Valor menor que o mínimo.",
+    optionalSame: (firstValue, secondValue) => (!!firstValue || !!secondValue) ? (firstValue === secondValue || "Senhas devem ser iguais.") : true
 }
