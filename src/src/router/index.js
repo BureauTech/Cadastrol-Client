@@ -59,6 +59,8 @@ router.beforeEach(function(to, from, next) {
     
     if(!isAuthenticated() && requiresAuth) {
         next({name: "Login"})
+    } else if (to.name === "Login" && isAuthenticated()) {
+        next({name: "UserList"})
     } else {
         next()
     }
