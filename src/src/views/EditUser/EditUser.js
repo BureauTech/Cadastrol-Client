@@ -30,7 +30,7 @@ export default {
         }
     },
     methods: {
-        cancel: function(e) {
+        cancel: function() {
             this.$router.push({name: "UserList"})
         },
         updateUser: async function(userFormRef) {

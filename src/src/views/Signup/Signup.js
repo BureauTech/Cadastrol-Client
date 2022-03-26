@@ -47,7 +47,7 @@ export default {
                 this.loading = false
             }
         },
-        cancel: function(e) {
+        cancel: function() {
             this.$router.push({name: "UserList"})
         }
     }
