@@ -7,33 +7,33 @@ export default {
     components: {
         UserForm
     },
-    data: function () {
+    data: function() {
         return {
             loading: false,
             originalUser: {
                 useName: "",
                 useEmail: "",
-                usePhone: "",
+                usePhone: ""
             },
             user: {
                 useName: "",
                 useEmail: "",
                 usePhone: "",
-                usePassword: "",
+                usePassword: ""
             },
             confirmPassword: "",
             nameRules: [rulesUtils.required],
             emailRules: [rulesUtils.required, rulesUtils.email],
             phoneRules: [rulesUtils.required, rulesUtils.number],
             passwordRules: [],
-            rules: rulesUtils,
+            rules: rulesUtils
         }
     },
     methods: {
-        cancel: function (e) {
-            this.$router.push({ name: "UserList" })
+        cancel: function(e) {
+            this.$router.push({name: "UserList"})
         },
-        updateUser: async function (userFormRef) {
+        updateUser: async function(userFormRef) {
             if (!userFormRef.validate()) return
 
             const fieldsToUpdate = {}
@@ -42,7 +42,7 @@ export default {
                     fieldsToUpdate[userField] = this.user[userField]
                 }
             }
-            if (this.user.usePassword && confirmPassword) {
+            if (this.user.usePassword && this.confirmPassword) {
                 fieldsToUpdate["usePassword"] = this.user.usePassword
             }
             if (Object.keys(fieldsToUpdate).length) {
@@ -52,7 +52,7 @@ export default {
                     if (response.data.success) {
                         this.loading = false
                         this.$toasted.success("Sucesso ao editar usuário!")
-                        this.$router.push({ name: "UserList" })
+                        this.$router.push({name: "UserList"})
                     }
                 } catch (error) {
                     this.loading = false
@@ -63,8 +63,8 @@ export default {
             }
         }
     },
-    beforeMount: function () {
+    beforeMount: function() {
         this.originalUser = this.$route.params.user
-        this.user = { ...this.user, ...this.originalUser }
+        this.user = {...this.user, ...this.originalUser}
     }
 }

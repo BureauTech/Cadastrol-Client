@@ -19,7 +19,7 @@ export default {
         initialValue: Object
     },
 
-    data: function () {
+    data: function() {
         return {
             showPassword: false,
             showConfirmPassword: false,
@@ -27,16 +27,16 @@ export default {
             emailValue: this.initialValue.useEmail,
             phoneValue: this.initialValue.usePhone,
             passwordValue: this.initialValue.usePassword,
-            confirmPasswordValue: this.initialValue.confirmPassword,
+            confirmPasswordValue: this.initialValue.confirmPassword
         }
     },
 
     methods: {
-        emitCancel: function (e) {
-            this.$emit('clickCancel', e)
+        emitCancel: function(e) {
+            this.$emit("clickCancel", e)
         },
-        emitSave: function (e) {
-            this.$emit('clickSave', this.$refs.UserForm)
+        emitSave: function(e) {
+            this.$emit("clickSave", this.$refs.UserForm)
         }
     }
 }

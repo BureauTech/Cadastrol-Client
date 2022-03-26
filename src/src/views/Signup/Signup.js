@@ -14,25 +14,25 @@ export default {
             originalUser: {
                 useName: "",
                 useEmail: "",
-                usePhone: "",
+                usePhone: ""
             },
             user: {
                 useName: "",
                 useEmail: "",
                 usePhone: "",
-                usePassword: "",
+                usePassword: ""
             },
             confirmPassword: "",
             nameRules: [rulesUtils.required],
             emailRules: [rulesUtils.required, rulesUtils.email],
             phoneRules: [rulesUtils.required, rulesUtils.number],
             passwordRules: [rulesUtils.required],
-            rules: rulesUtils,
+            rules: rulesUtils
         }
     },
       
     methods: {
-        addUser: async function (userFormRef) {
+        addUser: async function(userFormRef) {
             if (!userFormRef.validate()) return
 
             this.loading = true
