@@ -24,7 +24,10 @@ const routes = [{
 {
     path: "/signup",
     name: "Signup",
-    component: Signup
+    component: Signup,
+    meta: {
+        requiresAuth: true
+    }
 },
 {
     path: "/users",
@@ -52,11 +55,9 @@ const isAuthenticated = function() {
 
 
 router.beforeEach(function(to, from, next) {
-
     const requiresAuth = to.matched.some(function(record) {
         return record.meta.requiresAuth
     })
-    
     if(!isAuthenticated() && requiresAuth) {
         next({name: "Login"})
     } else if (to.name === "Login" && isAuthenticated()) {
