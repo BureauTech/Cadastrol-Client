@@ -45,12 +45,37 @@
               </v-toolbar>
             </template>
             <template v-slot:item.actions="{ item }">
-              <v-icon class="mr-2" @click="editDialog(item)">
-                mdi-pencil
-              </v-icon>
-              <v-icon @click="deleteDialog(item)">
-                mdi-delete
-              </v-icon>
+              <v-tooltip
+                bottom
+                color="primary"
+              >
+                <template v-slot:activator="{ on, attrs }">
+                  <v-icon
+                    class="mr-2"
+                    @click="editDialog(item)"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    mdi-pencil
+                  </v-icon>
+                </template>
+                <span>Editar</span>
+              </v-tooltip>
+              <v-tooltip
+                bottom
+                color="error"
+              >
+                <template v-slot:activator="{ on, attrs }">
+                  <v-icon
+                    @click="deleteDialog(item)"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    mdi-delete
+                  </v-icon>
+                </template>
+                <span>Excluir</span>
+              </v-tooltip>
             </template>
           </v-data-table>
           <v-dialog
