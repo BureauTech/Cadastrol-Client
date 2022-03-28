@@ -12,7 +12,7 @@ export default {
             headers: [{text: "Nome", align: "start", value: "useName"}, {text: "E-mail", value: "useEmail"},
                 {text: "Telefone", value: "usePhone"}, {text: "Ações", value: "actions", sortable: false}],
             dialog: false,
-            user: undefined,
+            user: {},
             users: [],
             page: 0,
             hasNext: true

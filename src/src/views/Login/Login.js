@@ -16,29 +16,27 @@ export default {
             rules: rulesUtils,
             loading: false,
             loginForm: {
-                useEmail: undefined,
-                usePassword: undefined
+                useEmail: "",
+                usePassword: ""
             }
         }
     },
     methods: {
         login: async function() {
-            if (this.$refs.loginForm.validate()) {
-                this.loading = true
-                try {
-                    const response = await axios.post("/login", this.loginForm)
-                    if (response.status == 200) {
-                        await this.$store.dispatch("setAuth", true)
-                        this.$router.push({name: "UserList"})
-                    } else {
-                        this.$toasted.error("Credenciais incorretas")
-                    }
-                } catch (error) {
-                    this.$toasted.error("Ocorreu um erro na requisição")
-                } finally {
-                    this.loading = false
+            if (!this.$refs.loginForm.validate()) return
+            this.loading = true
+            try {
+                const response = await axios.post("/login", this.loginForm).catch(e => e.response)
+                if (response.status == 200) {
+                    await this.$store.dispatch("setAuth", true)
+                    this.$router.push({name: "UserList"})
+                } else {
+                    this.$toasted.error("Credenciais incorretas")
                 }
+            } catch (error) {
+                this.$toasted.error("Ocorreu um erro na requisição")
             }
+            this.loading = false
         }
     }
 }

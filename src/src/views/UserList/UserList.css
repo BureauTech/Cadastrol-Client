@@ -33,31 +33,31 @@
 }
 
 .v-tooltip__content.delete:before{
-    content:'';
-    display:block;
-    width:0;
-    height:0;
-    position:absolute;
+  content:'';
+  display:block;
+  width:0;
+  height:0;
+  position:absolute;
 
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-right:8px solid rgba(97, 97, 97, 0.9);
-    left:-8px;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right:8px solid rgba(97, 97, 97, 0.9);
+  left:-8px;
 
-    top:7px;
+  top:7px;
 }
 
 .v-tooltip__content.edit:before{
-    content:'';
-    display:block;
-    width:0;
-    height:0;
-    position:absolute;
+  content:'';
+  display:block;
+  width:0;
+  height:0;
+  position:absolute;
 
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-left:8px solid rgba(97, 97, 97, 0.9);
-    right:-8px;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left:8px solid rgba(97, 97, 97, 0.9);
+  right:-8px;
 
-    top:7px;
+  top:7px;
 }

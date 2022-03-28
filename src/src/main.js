@@ -4,7 +4,6 @@ import vuetify from "./plugins/vuetify"
 import router from "./router"
 import Toasted from "vue-toasted"
 import store from "@/store"
-import axios from"@/axios"
 
 
 Vue.use(Toasted, {
@@ -14,21 +13,10 @@ Vue.use(Toasted, {
     singleton: true
 })
 
-const startApp = async function() {
-    try {
-        const response = await axios.get("/user")
-        if (response.data.success) store.dispatch("setAuth", true)
-    } catch (error) {
-        console.error(error)
-    }
-
-    Vue.config.productionTip = false
-    new Vue({
-        vuetify,
-        router,
-        store,
-        render: h => h(App)
-    }).$mount("#app")
-}
-
-startApp()
+Vue.config.productionTip = false
+new Vue({
+    vuetify,
+    router,
+    store,
+    render: h => h(App)
+}).$mount("#app")
