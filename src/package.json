@@ -1,6 +1,6 @@
 {
-  "name": "client",
-  "version": "1.0.0",
+  "name": "cadastrol-client",
+  "version": "v1.0.0",
   "author": "BureauTech",
   "scripts": {
     "build": "vue-cli-service build",
@@ -29,5 +29,5 @@
     "vuetify-loader": "^1.7.0"
   },
   "keywords": [],
-  "license": "ISC"
+  "license": "MIT License"
 }
