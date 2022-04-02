@@ -1,3 +1,4 @@
+[![License](http://img.shields.io/github/license/BureauTech/Cadastrol-Client)](https://github.com/BureauTech/Cadastrol-Client/blob/main/LICENSE)
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/BureauTech/Cadastrol-Client/)
 [![Node.js CI](https://github.com/BureauTech/Cadastrol-Client/actions/workflows/node.js.yml/badge.svg)](https://github.com/BureauTech/Cadastrol-Client/actions/workflows/node.js.yml)
 [![Docker Image CI](https://github.com/BureauTech/Cadastrol-Client/actions/workflows/docker-image.yml/badge.svg)](https://github.com/BureauTech/Cadastrol-Client/actions/workflows/docker-image.yml)
