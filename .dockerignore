@@ -1,0 +1,10 @@
+/.github
+/.vscode
+/doc
+/src/node_modules
+
+.gitignore
+docker-compose.yml
+dockerfile.*
+LICENSE
+README.md

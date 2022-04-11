@@ -11,9 +11,7 @@
 
 To make it run on your machine without installing everything locally, you can simply run it via docker image, by following the commands below.
 
-```docker build -t cadastrol-client .```
-
-```docker run -it -p 3001:80 --rm --name cadastrol-client cadastrol-client ```
+```docker compose up```
 
 NOTE: It's important to have [docker installed](https://docs.docker.com/engine/install/) on your machine.
 
