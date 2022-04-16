@@ -5,6 +5,8 @@
 
 # Cadastrol-Client
 
+This is the front-end of our test application. [Click here to access the back-end](https://github.com/BureauTech/Cadastrol-Server).
+
 ## How to install
 
 ### Docker Image
