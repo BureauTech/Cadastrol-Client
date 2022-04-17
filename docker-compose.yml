@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+
+  cadastrol-client:
+    container_name: cadastrol-client
+    build:
+      context: .
+      dockerfile: dockerfile.node
+    ports:
+      - 3001:80
